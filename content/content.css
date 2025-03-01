@@ -1,0 +1,174 @@
+.llm-tracker-overlay {
+  pointer-events: none;
+  background: transparent;
+  overflow: visible;
+}
+
+.llm-tracker-button {
+  width: 30px;
+  height: 30px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.llm-tracker-button:hover {
+  background-color: #45a049;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.llm-tracker-tag {
+  position: absolute;
+  background-color: white;
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 9999;
+  transition: all 0.3s ease;
+  width: 180px;
+}
+
+.llm-tracker-input {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 6px;
+  border-radius: 3px;
+  outline: none;
+}
+
+.llm-tracker-collapsed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10000;
+  overflow-y: visible;
+  padding-right: 5px;
+}
+
+.llm-tracker-collapsed-tag {
+  width: 24px;
+  height: 24px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.llm-tracker-collapsed-tag:hover {
+  transform: scale(1.1);
+  background-color: #45a049;
+}
+
+.llm-tracker-wrapper {
+  pointer-events: none;
+  background: transparent;
+  overflow: visible;
+}
+
+.llm-tracker-wrapper * {
+  pointer-events: auto;
+}
+
+/* 确保所有可滚动容器都有相对定位 */
+[data-tracker-initialized="true"] {
+  position: relative;
+}
+
+.llm-tracker-tag.collapsed {
+  width: auto;
+  padding: 6px 12px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.llm-tracker-tag.collapsed .llm-tracker-input {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.llm-tracker-tag.collapsed:hover {
+  background-color: #e0e0e0;
+}
+
+.llm-tracker-tag .tag-content {
+  margin-bottom: 8px;
+}
+
+.llm-tracker-tag .tag-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.llm-tracker-tag .tag-button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.llm-tracker-dialog-button {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+/* 鼠标悬停时显示按钮 */
+[data-trackable="true"]:hover .llm-tracker-dialog-button {
+  opacity: 1;
+}
+
+.llm-tracker-highlight {
+  animation: highlight 2s ease;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: rgba(76, 175, 80, 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.dialog-tag {
+  position: absolute;
+  right: -220px; /* 将标签放在对话框右侧 */
+  width: 200px;
+} 
